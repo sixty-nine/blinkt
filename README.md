@@ -1,14 +1,7 @@
-# Blinkt Examples Web Service
+# Simple web service for Pimoroni Blinkt examples 
 
 This is a simple Flask webservice to run few of the [Pimoroni Blinkt](https://shop.pimoroni.com/products/blinkt)
 code examples.
-
-## References
-
- * [Pimoroni Blinkt python library documentation](http://docs.pimoroni.com/blinkt)
- * [Pimoroni blinkt python library](https://github.com/pimoroni/blinkt)
- * [An Intro to Threading in Python](https://realpython.com/intro-to-python-threading/#what-is-a-thread)
- * [Flask user guide](https://flask.palletsprojects.com/en/1.1.x/)
 
 ## Available end-points
 
@@ -30,7 +23,7 @@ Each example is implemented in a class in `BlinkIt/Workers`.
 
 This class must implement the `BlinkIt/Workers/Worker` interface.
 
-In a Worker class can use:
+In a Worker class you can use:
 
  * `self.interval` is the time interval to call the worker (default 1 second)
  * `self.driver`  is a reference to the Blinkt library abstraction interface
@@ -47,7 +40,6 @@ In a Worker class can use:
  
  ```python
 from BlinkIt.Workers.Worker import Worker
-
 
 class DummyWorker(Worker):
     def initialize(self):
@@ -67,3 +59,10 @@ def dummy_action():
     director.start(DummyWorker(driver))
     return 'Dummy'
 ```
+
+## References
+
+ * [Pimoroni Blinkt python library documentation](http://docs.pimoroni.com/blinkt)
+ * [Pimoroni blinkt python library](https://github.com/pimoroni/blinkt)
+ * [An Intro to Threading in Python](https://realpython.com/intro-to-python-threading/#what-is-a-thread)
+ * [Flask user guide](https://flask.palletsprojects.com/en/1.1.x/)
