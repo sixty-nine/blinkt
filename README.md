@@ -3,6 +3,13 @@
 This is a simple Flask webservice to run few of the [Pimoroni Blinkt](https://shop.pimoroni.com/products/blinkt)
 code examples.
 
+## Running the webservice
+
+```bash
+cd src
+python app.py
+```
+
 ## Available end-points
 
  * /clear    - will clear the LEDs
