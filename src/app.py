@@ -1,7 +1,8 @@
 import atexit
 from sys import exit
 
-from Controllers.ExamplesController import create_routes as create_examples_routes
+from controllers.ExamplesController import create_routes as create_examples_routes
+from controllers.InfoController import create_routes as create_info_routes
 
 try:
     import psutil
@@ -24,6 +25,7 @@ driver = BlinktDriver()
 
 
 app.register_blueprint(create_examples_routes(director, driver))
+app.register_blueprint(create_info_routes())
 
 
 @app.route('/')

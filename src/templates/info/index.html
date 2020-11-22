@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}Information{% endblock %}
+
+{% block content %}
+<div>Host: {{HostName}}</div>
+<br/>
+<div>CPU Count: {{CpuCount}}</div>
+<div>CPU Frequency: {{CpuFreq|round|int}}GHz</div>
+<div>CPU Percent: {{CpuPercent|float}}%</div>
+<br/>
+<div>Memory: {{(Mem.total / 1024 ** 3)|round|int}}Mb</div>
+<div>Memory used: {{(Mem.used / 1024 ** 3)|filesizeformat}}</div>
+<div>Memory free: {{(Mem.free / 1024 ** 3)|filesizeformat}}</div>
+<br/>
+<div>Swap: {{(Swap.total / 1024 ** 3)|filesizeformat}}</div>
+<div>Swap used: {{(Swap.percent / 1024 ** 3)|round|float}}%</div>
+<br/>
+{{psutil.sensors_fans()}}
+<table>
+    <tr>
+        <th>Device</th>
+        <th>Mount point</th>
+        <th>FS type</th>
+        <th>Size</th>
+    </tr>
+    {% for item in Partitions %}
+    {% if item.fstype != 'squashfs' %}
+    <tr>
+        <td>{{item.device}}</td>
+        <td>{{item.mountpoint}}</td>
+        <td>{{item.fstype}}</td>
+        <td>
+            {% set usage = psutil.disk_usage(item.mountpoint) -%}
+            {{usage.used|filesizeformat}} /
+            {{usage.total|filesizeformat}}
+        </td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+</table>
+
+{% endblock %}
+
