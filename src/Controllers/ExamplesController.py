@@ -1,7 +1,8 @@
 from flask import Blueprint
 
 from Blinkt.Workers import \
-    DummyWorker, RainbowWorker, LarsonWorker, CpuLoadWorker, GraphWorker, MemLoadWorker
+    DummyWorker, RainbowWorker, LarsonWorker, CpuLoadWorker, GraphWorker, MemLoadWorker, \
+    CandleWorker
 
 
 def create_routes(director, driver):
@@ -20,6 +21,11 @@ def create_routes(director, driver):
     @routes.route('/larson')
     def larson_action():
         director.start(LarsonWorker(driver))
+        return 'Larson'
+
+    @routes.route('/candle')
+    def candle_action():
+        director.start(CandleWorker(driver))
         return 'Larson'
 
     @routes.route('/cpu-load')

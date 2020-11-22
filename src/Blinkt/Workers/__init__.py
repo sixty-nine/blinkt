@@ -5,3 +5,4 @@ from Blinkt.Workers.LarsonWorker import *
 from Blinkt.Workers.CpuLoadWorker import *
 from Blinkt.Workers.GraphWorker import *
 from Blinkt.Workers.MemLoadWorker import *
+from Blinkt.Workers.CandleWorker import *

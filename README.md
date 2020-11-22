@@ -18,6 +18,7 @@ python app.py
  * /blinkt/cpu-load - will run the cpu-load.py example
  * /blinkt/mem-load - will run the mem-load.py example
  * /blinkt/graph - will run the graph.py example
+ * /blinkt/candle - will run the candle.py example
  
 ## Pimoroni library abstraction
 
