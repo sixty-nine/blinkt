@@ -12,7 +12,7 @@ except ImportError:
     exit("This script requires the flask module\nInstall with: sudo pip install flask")
 
 from Blinkt import LedDirector, BlinktDriver
-from Blinkt.Workers import DummyWorker, RainbowWorker, LarsonWorker, CpuLoadWorker
+from Blinkt.Workers import DummyWorker, RainbowWorker, LarsonWorker, CpuLoadWorker, GraphWorker
 
 app = Flask(__name__)
 
@@ -49,6 +49,12 @@ def larson_action():
 def cpu_load_action():
     director.start(CpuLoadWorker(driver))
     return 'CPU Load'
+
+
+@app.route('/graph')
+def graph_action():
+    director.start(GraphWorker(driver))
+    return 'Graph'
 
 
 def stop():
