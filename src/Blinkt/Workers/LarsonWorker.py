@@ -1,5 +1,4 @@
 import time
-import math
 
 from Blinkt import BlinktDriver
 from Blinkt.Workers.Worker import Worker

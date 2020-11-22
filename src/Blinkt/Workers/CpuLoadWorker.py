@@ -1,4 +1,3 @@
-import time
 from sys import exit
 
 try:
@@ -7,7 +6,6 @@ except ImportError:
     exit("This script requires the psutil module\nInstall with: sudo pip install psutil")
 
 
-from Blinkt import BlinktDriver
 from Blinkt.Workers.Worker import Worker
 
 

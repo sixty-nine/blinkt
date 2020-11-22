@@ -24,7 +24,6 @@ driver = BlinktDriver()
 
 @app.route('/')
 def hello_world():
-    # client.publish(topic, "from server")
     return 'Hello World! I am running on port ' + str(port)
 
 
