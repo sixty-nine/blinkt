@@ -15,7 +15,9 @@ python app.py
  * /clear    - will clear the LEDs
  * /rainbow  - will run the rainbow.py example
  * /larson   - will run the larson.py example
- * /cpu-load - will run the cpu-load.py example 
+ * /cpu-load - will run the cpu-load.py example
+ * /mem-load - will run the mem-load.py example
+ * /graph - will run the graph.py example
  
 ## Pimoroni library abstraction
 
