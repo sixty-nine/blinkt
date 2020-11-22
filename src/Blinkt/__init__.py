@@ -27,9 +27,7 @@ class LedDirector(object):
         self.thread.start()
 
     def work(self):
-        with self.dataLock:
-            self.worker.work()
-
-        if not self.stopping:
-            self.thread.run()
+        while not self.stopping:
+            with self.dataLock:
+                self.worker.work()
 
