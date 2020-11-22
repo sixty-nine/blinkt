@@ -1,4 +1,4 @@
-from BlinkIt import BlinktDriver
+from Blinkt import BlinktDriver
 
 
 class Worker(object):

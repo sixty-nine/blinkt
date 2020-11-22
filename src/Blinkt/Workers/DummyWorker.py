@@ -1,4 +1,4 @@
-from BlinkIt.Workers.Worker import Worker
+from Blinkt.Workers.Worker import Worker
 
 
 class DummyWorker(Worker):

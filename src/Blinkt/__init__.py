@@ -1,7 +1,7 @@
 import threading
 
-from BlinkIt.BlinktDriver import *
-from BlinkIt.Workers import Worker
+from Blinkt.BlinktDriver import *
+from Blinkt.Workers import Worker
 
 
 class LedDirector(object):

@@ -26,9 +26,9 @@ If the import of the Blinkt library failed, the calls will be displayed on the c
 
 ## Implementing more examples
 
-Each example is implemented in a class in `BlinkIt/Workers`.
+Each example is implemented in a class in `Blinkt/Workers`.
 
-This class must implement the `BlinkIt/Workers/Worker` interface.
+This class must implement the `Blinkt/Workers/Worker` interface.
 
 In a Worker class you can use:
 

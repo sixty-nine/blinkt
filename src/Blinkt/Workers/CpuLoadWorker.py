@@ -7,8 +7,8 @@ except ImportError:
     exit("This script requires the psutil module\nInstall with: sudo pip install psutil")
 
 
-from BlinkIt import BlinktDriver
-from BlinkIt.Workers.Worker import Worker
+from Blinkt import BlinktDriver
+from Blinkt.Workers.Worker import Worker
 
 
 class CpuLoadWorker(Worker):

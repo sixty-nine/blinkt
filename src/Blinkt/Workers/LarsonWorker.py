@@ -1,8 +1,8 @@
 import time
 import math
 
-from BlinkIt import BlinktDriver
-from BlinkIt.Workers.Worker import Worker
+from Blinkt import BlinktDriver
+from Blinkt.Workers.Worker import Worker
 
 
 class LarsonWorker(Worker):

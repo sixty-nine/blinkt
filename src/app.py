@@ -11,8 +11,8 @@ try:
 except ImportError:
     exit("This script requires the flask module\nInstall with: sudo pip install flask")
 
-from BlinkIt import LedDirector, BlinktDriver
-from BlinkIt.Workers import DummyWorker, RainbowWorker, LarsonWorker, CpuLoadWorker
+from Blinkt import LedDirector, BlinktDriver
+from Blinkt.Workers import DummyWorker, RainbowWorker, LarsonWorker, CpuLoadWorker
 
 app = Flask(__name__)
 
