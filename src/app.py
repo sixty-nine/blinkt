@@ -1,6 +1,8 @@
 import atexit
 from sys import exit
 
+from Controllers.ExamplesController import create_routes as create_examples_routes
+
 try:
     import psutil
 except ImportError:
@@ -12,7 +14,6 @@ except ImportError:
     exit("This script requires the flask module\nInstall with: sudo pip install flask")
 
 from Blinkt import LedDirector, BlinktDriver
-from Blinkt.Workers import DummyWorker, RainbowWorker, LarsonWorker, CpuLoadWorker, GraphWorker, MemLoadWorker
 
 app = Flask(__name__)
 
@@ -22,45 +23,12 @@ director = LedDirector()
 driver = BlinktDriver()
 
 
+app.register_blueprint(create_examples_routes(director, driver))
+
+
 @app.route('/')
 def hello_world():
     return 'Hello World! I am running on port ' + str(port)
-
-
-@app.route('/rainbow')
-def rainbow_action():
-    director.start(RainbowWorker(driver))
-    return 'Rainbow'
-
-
-@app.route('/clear')
-def clear_action():
-    director.start(DummyWorker(driver))
-    return 'Dummy'
-
-
-@app.route('/larson')
-def larson_action():
-    director.start(LarsonWorker(driver))
-    return 'Larson'
-
-
-@app.route('/cpu-load')
-def cpu_load_action():
-    director.start(CpuLoadWorker(driver))
-    return 'CPU Load'
-
-
-@app.route('/mem-load')
-def mem_load_action():
-    director.start(MemLoadWorker(driver))
-    return 'Memory Load'
-
-
-@app.route('/graph')
-def graph_action():
-    director.start(GraphWorker(driver))
-    return 'Graph'
 
 
 def stop():

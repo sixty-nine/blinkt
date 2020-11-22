@@ -12,12 +12,12 @@ python app.py
 
 ## Available end-points
 
- * /clear    - will clear the LEDs
- * /rainbow  - will run the rainbow.py example
- * /larson   - will run the larson.py example
- * /cpu-load - will run the cpu-load.py example
- * /mem-load - will run the mem-load.py example
- * /graph - will run the graph.py example
+ * /blinkt/clear    - will clear the LEDs
+ * /blinkt/rainbow  - will run the rainbow.py example
+ * /blinkt/larson   - will run the larson.py example
+ * /blinkt/cpu-load - will run the cpu-load.py example
+ * /blinkt/mem-load - will run the mem-load.py example
+ * /blinkt/graph - will run the graph.py example
  
 ## Pimoroni library abstraction
 
@@ -40,7 +40,7 @@ In a Worker class you can use:
  * the `initialize()` method is called once when the worker is started
  * the `work()` method is called repeatedly 
  
- When implementing new Worker classes, an end-point must be created in app.py so that it can be
+ When implementing new Worker classes, an end-point must be created in ExamplesController.py so that it can be
  called remotely.
  
  ## Simple worker example
@@ -56,14 +56,14 @@ class DummyWorker(Worker):
         self.driver.show()
 ```
 
-Add an end-point in app.py:
+Add an end-point in ExamplesController:
 
 ```python
 from BlinkIt.Workers import DummyWorker
 
 # ...
 
-@app.route('/dummy')
+@routes.route('/dummy')
 def dummy_action():
     director.start(DummyWorker(driver))
     return 'Dummy'
@@ -75,3 +75,4 @@ def dummy_action():
  * [Pimoroni blinkt python library](https://github.com/pimoroni/blinkt)
  * [An Intro to Threading in Python](https://realpython.com/intro-to-python-threading/#what-is-a-thread)
  * [Flask user guide](https://flask.palletsprojects.com/en/1.1.x/)
+ * [How To Structure Large Flask Applications](https://www.digitalocean.com/community/tutorials/how-to-structure-large-flask-applications)
